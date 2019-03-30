@@ -21,7 +21,7 @@ public class ChitFundService {
 	private ChitsUsersRepo chitUsersRepo;
 	
 	//Register User for a particular  
-	@PostMapping("/user/chits/register")
+	@PostMapping("/api/user/chits/register")
 	public void registerUserToChitFund(@RequestBody ChitUser chitUser){
 		
 		ChitsUserMapping chitUserMapping = new ChitsUserMapping();

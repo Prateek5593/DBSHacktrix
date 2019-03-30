@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="chitsusermapping")
+@Table(name="chits_user_mapping")
 public class ChitsUserMapping {
 	
 	@Id
