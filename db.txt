@@ -11,7 +11,7 @@ CREATE TABLE `chits` (
   UNIQUE KEY `name` (`name`)
 );
 
-CREATE TABLE `chitsUserMapping` (
+CREATE TABLE `chits_user_mapping` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `chit_id` int(11) DEFAULT NULL,
