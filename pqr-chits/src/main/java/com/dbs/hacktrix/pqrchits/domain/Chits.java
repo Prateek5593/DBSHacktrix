@@ -20,13 +20,13 @@ public class Chits {
 	@Column(name="amount")
 	private int amount;
 	
-	@Column(name="numMonths")
+	@Column(name="num_months")
 	private int numMonths;
 	
 	@Column(name="commission")
 	private int commision;
 	
-	@Column(name="numPersons")
+	@Column(name="num_persons")
 	private int numPersons;
 	
 	@Column(name="bidStartTime")
