@@ -1,19 +1,19 @@
 package com.dbs.hacktrix.pqrchits.service.chits;
 
 public class ChitUser {
-	private Long chitId;
-	private Long UserId;
+	private Integer chitId;
+	private Integer UserId;
 	
-	public Long getChitId() {
+	public Integer getChitId() {
 		return chitId;
 	}
-	public void setChitId(Long chitId) {
+	public void setChitId(Integer chitId) {
 		this.chitId = chitId;
 	}
-	public Long getUserId() {
+	public Integer getUserId() {
 		return UserId;
 	}
-	public void setUserId(Long userId) {
+	public void setUserId(Integer userId) {
 		UserId = userId;
 	}
 }
