@@ -15,6 +15,7 @@ CREATE TABLE `chits_user_mapping` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `chit_id` int(11) DEFAULT NULL,
+  `amount` int(11),
   `status` enum('live','deleted') DEFAULT NULL,
   `creation_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updation_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
