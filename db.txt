@@ -1,0 +1,33 @@
+ CREATE TABLE `chits` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `amount` int(5) DEFAULT NULL,
+  `numMonths` int(5) DEFAULT NULL,
+  `commision` int(2) DEFAULT NULL,
+  `numPersons` int(5) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci 
+
+
+CREATE TABLE `chitsUserMapping` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) DEFAULT NULL,
+  `chitId` int(11) DEFAULT NULL,
+  `status` enum('live','deleted') DEFAULT NULL,
+  `creattionTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updationTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstName` varchar(255) DEFAULT NULL,
+  `lastName` varchar(255) DEFAULT NULL,
+  `type` enum('guest','admin','bidperson') DEFAULT NULL,
+  `mobileNumber` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `mobileNumber` (`mobileNumber`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci 
