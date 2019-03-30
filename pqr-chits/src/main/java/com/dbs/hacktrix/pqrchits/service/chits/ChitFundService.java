@@ -1,4 +1,4 @@
-package com.dbs.hacktrix.pqrchits.chits;
+package com.dbs.hacktrix.pqrchits.service.chits;
 
 import java.net.URI;
 
