@@ -1,8 +1,13 @@
 package com.dbs.hacktrix.pqrchits.dto;
 
+import javax.validation.constraints.NotBlank;
+
 public class UserRequestDTO {
+	
+	@NotBlank
 	private String email;
 	
+	@NotBlank
 	private String password;
 
 	public String getEmail() {
