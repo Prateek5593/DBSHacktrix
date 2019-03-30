@@ -28,6 +28,7 @@ public class ChitFundService {
 		chitUserMapping.setChitId(chitUser.getChitId());
 		chitUserMapping.setUserId(chitUser.getUserId());
 		chitUserMapping.setStatus("live");
+		chitUserMapping.setAmount(0);
 		chitUsersRepo.save(chitUserMapping);
 		
 	} 

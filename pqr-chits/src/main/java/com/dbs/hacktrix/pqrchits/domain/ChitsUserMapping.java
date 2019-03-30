@@ -18,8 +18,33 @@ public class ChitsUserMapping {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name="userId")
+	@Column(name="user_id")
 	private Integer userId;
+	
+	
+
+	@Column(name="chit_id")
+	private Integer chitId;
+	
+	@Column(name="status")
+	private String status;
+	
+	@Column(name="creation_time")
+	private Timestamp creationTime;
+	
+	@Column(name="updation_time")
+	private Timestamp updationTime;
+	
+	@Column(name="amount")
+	private Integer amount;
+
+	public Integer getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Integer amount) {
+		this.amount = amount;
+	}
 	
 	public Integer getId() {
 		return id;
@@ -54,11 +79,11 @@ public class ChitsUserMapping {
 	}
 
 	public Timestamp getCreattionTime() {
-		return creattionTime;
+		return creationTime;
 	}
 
 	public void setCreattionTime(Timestamp creattionTime) {
-		this.creattionTime = creattionTime;
+		this.creationTime = creattionTime;
 	}
 
 	public Timestamp getUpdationTime() {
@@ -68,16 +93,5 @@ public class ChitsUserMapping {
 	public void setUpdationTime(Timestamp updationTime) {
 		this.updationTime = updationTime;
 	}
-
-	@Column(name="chitId")
-	private Integer chitId;
 	
-	@Column(name="status")
-	private String status;
-	
-	@Column(name="creattionTime")
-	private Timestamp creattionTime;
-	
-	@Column(name="updationTime")
-	private Timestamp updationTime;
 }
