@@ -28,9 +28,6 @@ CREATE TABLE `user` (
   `lastName` varchar(255) DEFAULT NULL,
   `type` enum('guest','admin','bidperson') DEFAULT NULL,
   `mobileNumber` int(11) DEFAULT NULL,
-  `first_name` varchar(255) DEFAULT NULL,
-  `last_name` varchar(255) DEFAULT NULL,
-  `mobile_number` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `mobileNumber` (`mobileNumber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci 
