@@ -27,6 +27,17 @@ public class Bids {
 	@Column(name = "activeStatus")
 	private boolean activeStatus;
 
+	public Bids() {
+
+	}
+
+	public Bids(Integer chitsID, Integer userID, Integer amount, boolean activeStatus) {
+		this.chitsID = chitsID;
+		this.userId = userID;
+		this.amount = amount;
+		this.activeStatus = activeStatus;
+	}
+
 	public Integer getId() {
 		return id;
 	}

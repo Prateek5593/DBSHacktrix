@@ -5,18 +5,41 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.dbs.hacktrix.pqrchits.domain.Bids;
 import com.dbs.hacktrix.pqrchits.domain.Chits;
+import com.dbs.hacktrix.pqrchits.domain.UserMoneyPerChit;
+import com.dbs.hacktrix.pqrchits.repository.BidsRepo;
+import com.dbs.hacktrix.pqrchits.repository.ChitsRepo;
 import com.dbs.hacktrix.pqrchits.util.BiddingUtil;
 
+
+@Service
 public class BiddingServiceImpl implements BiddingService {
+
+	@Autowired
+	private BidsRepo bidsRepo;
+	
+	@Autowired
+	private ChitsRepo chitsRepo;
 
 	@Override
 	public String submitBid(Integer userId, Integer chitfundId, int amount) {
 		if (BiddingUtil.isBidOpen(chitfundId)) {
 			String bidMessage = BiddingUtil.isValidBid(userId, chitfundId, amount);
 			if (bidMessage.equals("sucessful")) {
-				// TODO: saveDatainBidTable();
+				Bids bid = bidsRepo.findByChitsID(chitfundId);
+				if (null == bid) {
+
+					bid = new Bids(chitfundId, userId, amount, true);
+				} else {
+					bid.setUserId(userId);
+					bid.setAmount(amount);
+
+				}
+				bidsRepo.save(bid);
 			}
 
 		} else {
@@ -28,34 +51,35 @@ public class BiddingServiceImpl implements BiddingService {
 
 	@Override
 	public void processesBid(Integer chitfundId) {
-		// TODO: getBy ChitsFUndId
-		Chits chit = new Chits();
-		// TODO: get All active bid from db
-		List<Bids> bids = new ArrayList<Bids>();
-		// TODO: fecth list of tables from getBidSoFar();
-		TreeMap<Integer, Bids> map = new TreeMap<>();
-		for (Bids bid : bids) {
-			map.put(1, bid);
-		}
-		Entry<Integer, Bids> firstEntry = map.firstEntry();
-		if (firstEntry != null) {
-			Bids bid = firstEntry.getValue();
-			processCurrentBid(bid);
-		}
+		Chits chit = chitsRepo.findById(chitfundId).isPresent() ? chitsRepo.findById(chitfundId).get() : null;
+		Bids bidOfFund = bidsRepo.findByChitsID(chitfundId);
+		processCurrentBid(bidOfFund, chit);
 	}
 
-	private void processCurrentBid(Bids bid) {
-		long userId = bid.getUserId();
-		long chitFundId = bid.getChitsID();
-		long bidAmount = bid.getAmount();
+	private void processCurrentBid(Bids bid, Chits chit) {
+		int userId = bid.getUserId();
+		int chitFundId = bid.getChitsID();
+		int bidAmount = bid.getAmount();
 
-		long chargePrecentage = 5;
-		long availableLimit = 0;
-		long chargeableAmount = availableLimit * chargePrecentage / 100;
-		long discount = availableLimit - bidAmount;
-		long depositAmount = 0;// Is User Previously buys
-		List<Object> abc = getAllUserBychitID();
+		int commission = chit.getCommision();
+		int chitAmount = chit.getAmount();
+		int chargeableAmount = chitAmount * commission / 100;
+		int discount = chitAmount - bidAmount;
+		int perPersonAmount = chitAmount / chit.getNumPersons();
+		int payableByBidder = perPersonAmount - bidAmount - discount / chit.getNumPersons()
+				+ chargeableAmount / chit.getNumPersons();
+		int paybaleByOther = perPersonAmount - discount / chit.getNumPersons()
+				+ chargeableAmount / chit.getNumPersons();
+		processAmount(userId, chitFundId, payableByBidder, paybaleByOther, chargeableAmount);
 
+	}
+
+	private void processAmount(int userId, int chitFundId, int payableByBidder, int paybaleByOther,
+			int chargeableAmount) {
+		
+List<UserMoneyPerChit> list=get
+		
+		
 	}
 
 	@Override
