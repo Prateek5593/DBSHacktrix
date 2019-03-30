@@ -13,17 +13,24 @@ import com.dbs.hacktrix.pqrchits.domain.Chits;
 import com.dbs.hacktrix.pqrchits.domain.UserMoneyPerChit;
 import com.dbs.hacktrix.pqrchits.repository.BidsRepo;
 import com.dbs.hacktrix.pqrchits.repository.ChitsRepo;
+import com.dbs.hacktrix.pqrchits.repository.ChitsUsersRepo;
+import com.dbs.hacktrix.pqrchits.repository.UserMoneyPerChitRepo;
 import com.dbs.hacktrix.pqrchits.util.BiddingUtil;
-
 
 @Service
 public class BiddingServiceImpl implements BiddingService {
 
 	@Autowired
 	private BidsRepo bidsRepo;
-	
+
 	@Autowired
 	private ChitsRepo chitsRepo;
+
+	@Autowired
+	private UserMoneyPerChitRepo userMoneyPerChitRepo;
+
+	@Autowired
+	private ChitsUsersRepo chitsUsersRepo;
 
 	@Override
 	public String submitBid(Integer userId, Integer chitfundId, int amount) {
@@ -76,10 +83,18 @@ public class BiddingServiceImpl implements BiddingService {
 
 	private void processAmount(int userId, int chitFundId, int payableByBidder, int paybaleByOther,
 			int chargeableAmount) {
-		
-List<UserMoneyPerChit> list=get
-		
-		
+		List<UserMoneyPerChit> list = userMoneyPerChitRepo.findAllByChitID(chitFundId);
+		for (UserMoneyPerChit userMoneyPerChit : list) {
+			if (userMoneyPerChit.getUserId() == userId) {
+				int amount = userMoneyPerChit.getAmount() + payableByBidder;
+				userMoneyPerChit.setAmount(amount);
+			} else {
+				int amount = userMoneyPerChit.getAmount() + paybaleByOther;
+				userMoneyPerChit.setAmount(amount);
+			}
+			userMoneyPerChitRepo.save(userMoneyPerChit);
+		}
+
 	}
 
 	@Override

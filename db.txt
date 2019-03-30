@@ -16,7 +16,7 @@ CREATE TABLE `chits_user_mapping` (
   `user_id` int(11) DEFAULT NULL,
   `chit_id` int(11) DEFAULT NULL,
   `status` enum('live','deleted') DEFAULT NULL,
-  `creattion_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `creation_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updation_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
@@ -31,6 +31,8 @@ CREATE TABLE `user` (
   `mobile_number` int(11) DEFAULT NULL,
   `email` varchar(255) ,
   `password` varchar(255),
+  `creation_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updation_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `mobileNumber` (`mobile_number`),
   UNIQUE KEY `email` (`email`)

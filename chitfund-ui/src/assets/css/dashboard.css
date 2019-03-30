@@ -5,7 +5,35 @@
     margin-bottom: 10px;
   }
  
-
-  .navbar-dark{
+.navbar-dark{
     background: #2196f3;
-  }
+    min-height: 60px;
+}
+.sidebar{
+    color: #fff;
+    background: #030303;
+}
+
+.sidebar a{
+    color: #fff;
+    background: #030303;
+    padding: 1rem;
+}
+
+.sidebar a:hover, .sidebar .active{
+    color: rgb(167, 167, 167);
+}
+
+main{
+    height: 650px;
+    min-height: 650px;
+}
+
+.table td, .table th{
+    border: none;
+    padding: 15px 5px;
+}
+
+.table th{
+    background: #cfcfcf;
+}

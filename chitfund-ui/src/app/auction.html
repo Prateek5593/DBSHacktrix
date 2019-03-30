@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Dashboard Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dist/css/dashboard.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark sticky-top flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">PQR</a>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="#">Sign out</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="fund-dashboard.html">
+                  Dashboard <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="auction.html">
+                  Auction
+                  </a>
+                </li>
+              <li class="nav-item">
+                <a class="nav-link" href="deposit.html">
+                  Deposit
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="load-request.html">
+                  Loan Request
+                </a>
+              </li>
+              
+            </ul>
+           
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Auction</h1>
+            
+          </div>
+
+    
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                    <tr>
+                        <th width="10%">#</th>
+                        <th width="40%">Company Name</th>
+                        <th width="20%">Amount</th>
+                        <th width="20%">Left Bidding</th>
+                        <th width="10%"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>XYZ</td>
+                        <td>50,000</td>
+                        <td>20/100</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bid-modal">
+                                Bidding
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>XYZ</td>
+                        <td>50,000</td>
+                        <td>20/100</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bid-modal">
+                                Bidding
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>XYZ</td>
+                        <td>50,000</td>
+                        <td>20/100</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bid-modal">
+                                Bidding
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>XYZ</td>
+                        <td>50,000</td>
+                        <td>20/100</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bid-modal">
+                                Bidding
+                            </button>
+                        </td>
+                    </tr>
+        
+                    
+                    </tbody>
+                </table>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="bid-modal" tabindex="-1" role="dialog" aria-labelledby="bid-modalTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Company Name</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                                
+                                <form>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Bidding Amount</label>
+                                        <input type="number" class="form-control" id="bid-input" placeholder="Amount">
+                                        <small id="emailHelp" class="form-text text-muted"></small>
+                                    </div>
+                                   
+                                </form>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+                
+        
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="dist/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="dist/js/popper.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+
+   
+  </body>
+</html>
