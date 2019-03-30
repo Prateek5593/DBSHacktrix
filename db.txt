@@ -1,22 +1,23 @@
- CREATE TABLE `chits` (
+CREATE TABLE `chits` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `amount` int(5) DEFAULT NULL,
-  `numMonths` int(5) DEFAULT NULL,
-  `commision` int(2) DEFAULT NULL,
-  `numPersons` int(5) DEFAULT NULL,
+  `num_months` int(5) DEFAULT NULL,
+  `commission` int(2) DEFAULT NULL,
+  `num_persons` int(5) DEFAULT NULL,
+  `creation_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updation_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,  
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci 
-
+);
 
 CREATE TABLE `chitsUserMapping` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `userId` int(11) DEFAULT NULL,
-  `chitId` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `chit_id` int(11) DEFAULT NULL,
   `status` enum('live','deleted') DEFAULT NULL,
-  `creattionTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updationTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `creattion_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updation_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
@@ -24,10 +25,13 @@ CREATE TABLE `chitsUserMapping` (
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `firstName` varchar(255) DEFAULT NULL,
-  `lastName` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
   `type` enum('guest','admin','bidperson') DEFAULT NULL,
-  `mobileNumber` int(11) DEFAULT NULL,
+  `mobile_number` int(11) DEFAULT NULL,
+  `email` varchar(255) ,
+  `password` varchar(255),
   PRIMARY KEY (`id`),
-  UNIQUE KEY `mobileNumber` (`mobileNumber`)
+  UNIQUE KEY `mobileNumber` (`mobile_number`),
+  UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci 
