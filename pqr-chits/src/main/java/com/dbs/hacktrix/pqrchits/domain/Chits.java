@@ -28,6 +28,15 @@ public class Chits {
 	
 	@Column(name="num_persons")
 	private int numPersons;
+	
+	@Column(name="bidStartTime")
+	private long bidStartTime;
+	
+	@Column(name="bidEndTime")
+	private long bidEndTime;
+	
+	@Column(name="commissionAmount")
+	private int commissionAmount;
 
 	public Integer getId() {
 		return id;
@@ -75,6 +84,30 @@ public class Chits {
 
 	public void setNumPersons(int numPersons) {
 		this.numPersons = numPersons;
+	}
+
+	public long getBidStartTime() {
+		return bidStartTime;
+	}
+
+	public void setBidStartTime(long bidStartTime) {
+		this.bidStartTime = bidStartTime;
+	}
+
+	public long getBidEndTime() {
+		return bidEndTime;
+	}
+
+	public void setBidEndTime(long bidEndTime) {
+		this.bidEndTime = bidEndTime;
+	}
+
+	public int getCommissionAmount() {
+		return commissionAmount;
+	}
+
+	public void setCommissionAmount(int commissionAmount) {
+		this.commissionAmount = commissionAmount;
 	}
 	
 	

@@ -11,4 +11,6 @@ import com.dbs.hacktrix.pqrchits.domain.ChitsUserMapping;
 public interface ChitsUsersRepo extends JpaRepository<ChitsUserMapping, Integer>{
 	
 	List<ChitsUserMapping> findAll();
+	
+	
 }
