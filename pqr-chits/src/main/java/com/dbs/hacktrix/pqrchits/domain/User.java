@@ -16,16 +16,16 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name="firstName")
+	@Column(name="first_name")
 	private String firstName;
 	
-	@Column(name="lastName")
+	@Column(name="last_name")
 	private String lastName;
 	
 	@Column(name="type")
 	private String type;
 	
-	@Column(name="mobileNumber")
+	@Column(name="mobile_number")
 	private int mobileNumber;
 
 	public Integer getId() {
